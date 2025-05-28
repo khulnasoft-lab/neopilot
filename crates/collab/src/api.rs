@@ -133,7 +133,7 @@ pub async fn validate_api_token<B>(req: Request<B>, next: Next<B>) -> impl IntoR
 
     if token != state.config.api_token {
         Err(Error::http(
-            StatusCode::UNAUTHORINEOPILOT,
+            StatusCode::UNAUTHORIZED,
             "invalid authorization token".to_string(),
         ))?
     }
@@ -318,7 +318,7 @@ async fn create_access_token(
             }
         } else {
             return Err(Error::http(
-                StatusCode::UNAUTHORINEOPILOT,
+                StatusCode::UNAUTHORIZED,
                 "you do not have permission to impersonate other users".to_string(),
             ));
         }

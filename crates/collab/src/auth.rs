@@ -34,7 +34,7 @@ pub async fn validate_header<B>(mut req: Request<B>, next: Next<B>) -> impl Into
         .and_then(|header| header.to_str().ok())
         .ok_or_else(|| {
             Error::http(
-                StatusCode::UNAUTHORINEOPILOT,
+                StatusCode::UNAUTHORIZED,
                 "missing authorization header".to_string(),
             )
         })?
@@ -45,7 +45,7 @@ pub async fn validate_header<B>(mut req: Request<B>, next: Next<B>) -> impl Into
     let first = auth_header.next().unwrap_or("");
     if first == "dev-server-token" {
         Err(Error::http(
-            StatusCode::UNAUTHORINEOPILOT,
+            StatusCode::UNAUTHORIZED,
             "Dev servers were removed in Neopilot 0.157 please upgrade to SSH remoting".to_string(),
         ))?;
     }
@@ -103,7 +103,7 @@ pub async fn validate_header<B>(mut req: Request<B>, next: Next<B>) -> impl Into
     }
 
     Err(Error::http(
-        StatusCode::UNAUTHORINEOPILOT,
+        StatusCode::UNAUTHORIZED,
         "invalid credentials".to_string(),
     ))
 }

@@ -423,7 +423,7 @@ impl Copilot {
 
         if let Some(true) = no_verify {
             env.insert(
-                "NODE_TLS_REJECT_UNAUTHORINEOPILOT".to_string(),
+                "NODE_TLS_REJECT_UNAUTHORIZED".to_string(),
                 "0".to_string(),
             );
         };
