@@ -21,6 +21,8 @@ jobs:
     runs-on:
       - self-hosted
       - test
+    permissions:
+      contents: read
     steps:
       - name: Checkout repo
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -41,6 +43,8 @@ jobs:
     runs-on:
       - self-hosted
       - test
+    permissions:
+      contents: read
     needs: style
     steps:
       - name: Checkout repo
@@ -58,6 +62,9 @@ jobs:
     runs-on:
       - self-hosted
       - bundle
+    permissions:
+      contents: read
+      packages: write
     needs: tests
     env:
       MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
