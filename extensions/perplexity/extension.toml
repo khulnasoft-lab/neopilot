@@ -1,0 +1,12 @@
+id = "perplexity"
+name = "Perplexity"
+version = "0.1.0"
+description = "Ask questions to Perplexity AI directly from Neopilot"
+authors = ["Neopilot Industries <support@neopilot.dev>"]
+repository = "https://github.com/khulnasoft-lab/neopilot"
+schema_version = 1
+
+[slash_commands.perplexity]
+description = "Ask a question to Perplexity AI"
+requires_argument = true
+tooltip_text = "Ask Perplexity"

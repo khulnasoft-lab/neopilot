@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-config.json
+blank_issues_enabled: false
+contact_links:
+  - name: Feature Request
+    url: https://github.com/khulnasoft-lab/neopilot/discussions/new/choose
+    about: To request a feature, open a new Discussion in one of the appropriate Discussion categories
+  - name: "Neopilot Discord"
+    url: https://neopilot.dev/community-links
+    about: Real-time discussion and user support

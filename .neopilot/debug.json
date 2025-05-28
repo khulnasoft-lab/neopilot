@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Debug Neopilot (CodeLLDB)",
+    "adapter": "CodeLLDB",
+    "program": "$NEOPILOT_WORKTREE_ROOT/target/debug/neopilot",
+    "request": "launch"
+  },
+  {
+    "label": "Debug Neopilot (GDB)",
+    "adapter": "GDB",
+    "program": "$NEOPILOT_WORKTREE_ROOT/target/debug/neopilot",
+    "request": "launch",
+    "initialize_args": {
+      "stopAtBeginningOfMainSubprogram": true
+    }
+  }
+]

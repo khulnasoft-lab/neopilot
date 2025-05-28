@@ -1,0 +1,41 @@
+[dependencies.anyhow]
+version = "1.0"
+
+[dependencies.serde]
+features = ["derive", "rc"]
+version = "1.0"
+
+[dependencies.serde_json]
+features = ["raw_value"]
+version = "1.0"
+
+[dependencies.strum]
+features = ["derive"]
+version = "0.27.1"
+
+[dependencies.uuid]
+features = ["serde"]
+version = "1.12"
+
+[dev-dependencies.pretty_assertions]
+version = "1.4.1"
+
+[lib]
+name = "neopilot_llm_client"
+path = "src/neopilot_llm_client.rs"
+
+[package]
+authors = ["Neopilot Industries <support@neopilot.dev>"]
+autobenches = false
+autobins = false
+autoexamples = false
+autolib = false
+autotests = false
+build = false
+description = "A client for interacting with the Neopilot LLM API."
+edition = "2021"
+license = "Apache-2.0"
+name = "neopilot_llm_client"
+publish = true
+readme = "README.md"
+version = "0.8.3"

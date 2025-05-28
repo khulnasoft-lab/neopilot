@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 [production|staging|...]"
+  exit 1
+fi
+
+export NEOPILOT_KUBE_NAMESPACE=$1
+
+pod=$(kubectl --namespace=${NEOPILOT_KUBE_NAMESPACE} get pods --selector=app=neopilot --output=jsonpath='{.items[*].metadata.name}')
+exec kubectl --namespace $NEOPILOT_KUBE_NAMESPACE exec --tty --stdin $pod -- /bin/bash

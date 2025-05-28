@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+if [[ $# -gt 0 ]]; then
+  echo "
+  Usage: ${0##*/}
+  Builds and installs neopilot onto your system into ~/.local, making it available as ~/.local/bin/neopilot.
+
+  Before running this you should ensure you have all the build dependencies installed with `./script/linux`.
+  "
+  exit 1
+fi
+export NEOPILOT_CHANNEL=$(<crates/neopilot/RELEASE_CHANNEL)
+export NEOPILOT_UPDATE_EXPLANATION="You need to fetch and rebuild neopilot in $(pwd)"
+script/bundle-linux
+
+target="linux-$(uname -m)"
+commit=$(git rev-parse HEAD | cut -c 1-7)
+if  [[ "$NEOPILOT_CHANNEL" == "dev" ]]; then
+  archive="neopilot-${commit}-${target}.tar.gz"
+else
+  archive="neopilot-${target}.tar.gz"
+fi
+export NEOPILOT_BUNDLE_PATH="${CARGO_TARGET_DIR:-target}/release/${archive}"
+script/install.sh

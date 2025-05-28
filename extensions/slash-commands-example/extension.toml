@@ -1,0 +1,15 @@
+id = "slash-commands-example"
+name = "Slash Commands Example"
+description = "An example extension showcasing slash commands."
+version = "0.1.0"
+schema_version = 1
+authors = ["Neopilot Industries <hi@neopilot.dev>"]
+repository = "https://github.com/khulnasoft-lab/neopilot"
+
+[slash_commands.echo]
+description = "echoes the provided input"
+requires_argument = true
+
+[slash_commands.pick-one]
+description = "pick one of three options"
+requires_argument = true
